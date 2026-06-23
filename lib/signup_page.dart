@@ -1,15 +1,13 @@
-import 'package:early_bird/signup_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignupPage extends StatefulWidget {
+  const SignupPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignupPage> createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -19,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
         leading: Padding(
           padding: const EdgeInsets.all(12.0),
           child: InkWell(onTap: (){
-            Navigator.pop(context);
+            Navigator.of(context).pop();
           },
             child: Container(
               height: height * 0.01,
@@ -37,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             Text(
-              "Login",
+              "Sign Up",
               style: TextStyle(
                 color: Color.fromRGBO(41, 182, 246, 1),
                 fontSize: 36,
@@ -45,16 +43,9 @@ class _LoginPageState extends State<LoginPage> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: height * 0.01),
-            Image.asset(
-              "assets/images/early_bird.png",
-              height: height * 0.15,
-              width: width * 0.15,
-            ),
-            SizedBox(height: height * 0.03),
-
+            SizedBox(height: height * 0.09),
             Container(
-              height: height * 0.08,
+              height: height * 0.06,
               width: width * 0.7,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
@@ -82,7 +73,35 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(height: height * 0.03),
 
             Container(
-              height: height * 0.08,
+              height: height * 0.06,
+              width: width * 0.7,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05), // Soft shadow color
+                    blurRadius: 8, // Haziness at the edge of the shadow
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: TextFormField(
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: "Username",
+                  hintStyle: TextStyle(color: Colors.grey),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: height * 0.03),
+
+            Container(
+              height: height * 0.06,
               width: width * 0.7,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
@@ -107,6 +126,35 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+
+            SizedBox(height: height * 0.03),
+            Container(
+              height: height * 0.06,
+              width: width * 0.7,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05), // Soft shadow color
+                    blurRadius: 8, // Haziness at the edge of the shadow
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: TextFormField(
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: "Confirm Password",
+                  hintStyle: TextStyle(color: Colors.grey),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+            ),
+
             SizedBox(height: height * 0.09),
             SizedBox(
               height: height * 0.08,
@@ -116,17 +164,12 @@ class _LoginPageState extends State<LoginPage> {
                   backgroundColor: Colors.blue, // Background color
                   foregroundColor: Colors.white, // Text and icon color
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignupPage()),
-                  );
-                },
+                onPressed: () {},
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Login",
+                      "Sign Up",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -141,12 +184,25 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             SizedBox(height: height * 0.1),
-            Text(
-              "Forgot Password",
-              style: TextStyle(
-                color: Color.fromRGBO(66, 66, 66, 1),
-                fontSize: 16,
-              ),
+            Column(
+              children: [
+                Text(
+                  "You are completely safe.",
+                  style: TextStyle(
+                    color: Color.fromRGBO(44, 41, 41, 1),
+                    fontSize: 15,
+                    fontFamily: 'DM Sans',
+
+                    
+                  ),
+                ),
+                Text("Read our Terms & Conditions.",style: TextStyle(
+                  color: Color.fromRGBO(41, 182, 246, 1),
+                  fontSize: 15,
+                  fontFamily: 'DM Sans',
+
+                ),)
+              ],
             ),
           ],
         ),
